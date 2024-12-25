@@ -31,16 +31,18 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      body: BlocBuilder<GetWeatherCubit, WeatherState>(
+      body: BlocBuilder<WeatherCubit, WeatherState>(
         builder: (context, state) {
-          if (state is WeatherInitialState) {
+          if (state is WeatherLoading) {
             return NoWeatherBody();
-          } else if (state is WeatherLoadedState) {
+          } else if (state is WeatherSuccess) {
             return WeatherInfoBody(
-              weather: state.weatherModel,
+              weather: state.weathermodel,
             );
-          } else {
+          } else if (state is WeatherFailur) {
             return const Text('Opps ther was an error');
+          } else {
+            return const NoWeatherBody();
           }
         },
       ),

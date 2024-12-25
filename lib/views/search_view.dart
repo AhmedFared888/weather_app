@@ -9,7 +9,7 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Search city',
         ),
       ),
@@ -18,11 +18,11 @@ class SearchView extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
-              var getweathercubit = BlocProvider.of<GetWeatherCubit>(context);
+              var getweathercubit = BlocProvider.of<WeatherCubit>(context);
               getweathercubit.getWeather(cityName: value);
               Navigator.pop(context);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                 vertical: 32,
                 horizontal: 16,

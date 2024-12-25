@@ -5,16 +5,13 @@ import 'package:weather_app/main.dart';
 import 'package:weather_app/models/weather_model.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({
-    Key? key,
-    required this.weather,
-  }) : super(key: key);
+  const WeatherInfoBody({Key? key, required this.weather}) : super(key: key);
 
   final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     WeatherModel weatherModel =
-        BlocProvider.of<GetWeatherCubit>(context).weatherModel!;
+        BlocProvider.of<WeatherCubit>(context).weatherModel!;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
